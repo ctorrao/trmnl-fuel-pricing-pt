@@ -1,54 +1,60 @@
-{% assign stations = sorted_stations | slice: 0, 15 %}
+{% assign stations = sorted_stations | slice: 0, 10 %}
 {% assign municipio_name = resultado.first.Municipio | upcase %}
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 
 <div style="{{ base_font }} padding: 8px;">
-  <div style="text-align: center; font-size: 20px; font-weight: bold; margin-bottom: 12px; border-bottom: 3px solid black; padding-bottom: 6px;">
+  <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 12px; border-bottom: 3px solid black; padding-bottom: 6px;">
     GASOLINA 95 - {{ distrito_name }} / {{ municipio_name }}
   </div>
 
   {% if stations.size > 0 %}
-    <div style="font-size: 10px; margin-bottom: 6px; font-weight: bold;">
-      Top 15 Mais Baratos (atualizado: {{ "now" | date: "%d/%m/%Y %H:%M" }})
+    <div style="font-size: 12px; margin-bottom: 6px; font-weight: bold;">
+      Top 10 Mais Baratos
     </div>
     
-    <table style="width: 100%; font-size: 9px; border-collapse: collapse;">
+    <table style="width: 100%; font-size: 11px; border-collapse: collapse;">
       <thead>
         <tr style="border-bottom: 2px solid black; background: #e0e0e0;">
-          <th style="text-align: left; padding: 3px; font-weight: bold;">#</th>
-          <th style="text-align: left; padding: 3px; font-weight: bold;">POSTO</th>
-          <th style="text-align: left; padding: 3px; font-weight: bold;">MARCA</th>
-          <th style="text-align: left; padding: 3px; font-weight: bold;">LOCALIDADE</th>
-          <th style="text-align: right; padding: 3px; font-weight: bold;">PREÇO</th>
-          <th style="text-align: center; padding: 3px; font-weight: bold;">ATUALIZ.</th>
+          <th style="text-align: left; padding: 4px; font-weight: bold;">#</th>
+          <th style="text-align: left; padding: 4px; font-weight: bold;">POSTO</th>
+          <th style="text-align: left; padding: 4px; font-weight: bold;">MARCA</th>
+          <th style="text-align: left; padding: 4px; font-weight: bold;">LOCALIDADE</th>
+          <th style="text-align: right; padding: 4px; font-weight: bold;">PREÇO</th>
+          <th style="text-align: center; padding: 4px; font-weight: bold;">ATUALIZ.</th>
         </tr>
       </thead>
       <tbody>
         {% for station in stations %}
           <tr style="border-bottom: 1px solid #999;">
-            <td style="padding: 3px; font-weight: bold;">{{ forloop.index }}</td>
-            <td style="padding: 3px;">{{ station.Nome | truncate: 35 }}</td>
-            <td style="padding: 3px;">{{ station.Marca | truncate: 12 }}</td>
-            <td style="padding: 3px;">{{ station.Localidade | truncate: 30 }}</td>
-            <td style="padding: 3px; text-align: right; font-weight: bold; font-size: 10px;">{{ station.Preco }}</td>
-            <td style="padding: 3px; text-align: center; font-size: 8px;">{{ station.DataAtualizacao | date: "%d %b" }}</td>
+            <td style="padding: 4px; font-weight: bold;">{{ forloop.index }}</td>
+            <td style="padding: 4px;">{{ station.Nome | truncate: 35 }}</td>
+            <td style="padding: 4px;">{{ station.Marca | truncate: 12 }}</td>
+            <td style="padding: 4px;">{{ station.Localidade | truncate: 30 }}</td>
+            <td style="padding: 4px; text-align: right; font-weight: bold; font-size: 12px;">{{ station.Preco }}</td>
+            <td style="padding: 4px; text-align: center; font-size: 10px;">{{ station.DataAtualizacao | date: "%d %b" }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     
-    <div style="margin-top: 8px; padding: 6px; border: 2px solid black; font-size: 10px; font-weight: bold;">
+    <div style="margin-top: 8px; padding: 6px; border: 2px solid black; font-size: 12px; font-weight: bold;">
       POUPANÇA MÁXIMA: {{ price_difference | round: 3 }}€/litro ({{ cheapest_station.Marca }} vs {{ most_expensive_station.Marca }})
     </div>
     
   {% else %}
-    <div style="text-align: center; padding: 40px; font-size: 14px; border: 2px solid black;">
+    <div style="text-align: center; padding: 40px; font-size: 16px; border: 2px solid black;">
       ERRO AO CARREGAR DADOS DA API<br>
-      <div style="font-size: 10px; margin-top: 10px;">
+      <div style="font-size: 12px; margin-top: 10px;">
         Debug: markup size = {{ markup.size }}<br>
         status = {{ markup.status }}<br>
         resultado size = {{ markup.resultado.size }}
       </div>
     </div>
   {% endif %}
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">Fuel Prices Portugal</span>
+  <span class="instance">Atualizado: {{ "now" | date: "%d/%m/%Y %H:%M" }}</span>
 </div>
