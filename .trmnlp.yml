@@ -7,8 +7,14 @@ watch:
   - src
 
 # values of custom fields (defined in src/settings.yml)
-custom_fields: {}
+custom_fields:
+  distrito_id: '11'
+  municipio_id: '165'
 
 # override variables
 variables:
-  trmnl: {}
+  trmnl:
+    user:
+      name: Carlos Torrao
+    plugin_settings:
+      instance_name: Fuel Prices Portugal
