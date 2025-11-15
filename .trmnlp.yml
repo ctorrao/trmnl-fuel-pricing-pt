@@ -8,6 +8,7 @@ watch:
 
 # values of custom fields (defined in src/settings.yml)
 custom_fields:
+  fuel_type_id: '3201'
   distrito_id: '11'
   municipio_id: '165'
 

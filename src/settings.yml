@@ -4,11 +4,15 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: 
 polling_verb: GET
-polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb=3201&idMarca=&idTipoPosto=&idDistrito={{ distrito_id }}&idsMunicipios={{ municipio_id }}&qtdPorPagina=20&pagina=1
+polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb={{ fuel_type_id }}&idMarca=&idTipoPosto=&idDistrito={{ distrito_id }}&idsMunicipios={{ municipio_id }}&qtdPorPagina=20&pagina=1
 polling_headers: Content-Type=application/json
 polling_body: 
 id: 181330
 custom_fields:
+- keyname : fuel_type_id
+  name: Fuel Type ID
+  field_type: string
+  default_value: '3201'
 - keyname: distrito_id
   name: District ID
   field_type: string

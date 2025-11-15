@@ -1,10 +1,11 @@
 {% assign stations = sorted_stations | slice: 0, 10 %}
 {% assign municipio_name = resultado.first.Municipio | upcase %}
 {% assign distrito_name = resultado.first.Distrito | upcase %}
+{% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
 <div style="{{ base_font }} padding: 8px;">
-  <div style="text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 12px; border-bottom: 3px solid black; padding-bottom: 6px;">
-    GASOLINA 95 - {{ distrito_name }} / {{ municipio_name }}
+  <div style="text-align: center; font-size: 24px; font-weight: bold; margin-bottom: 12px; border-bottom: 3px solid black; padding-bottom: 6px;">
+    {{ combustivel_name }} - {{ distrito_name }} / {{ municipio_name }}
   </div>
 
   {% if stations.size > 0 %}
