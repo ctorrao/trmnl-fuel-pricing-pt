@@ -1,1 +1,26 @@
+{% comment %}
+  Shared logic for fuel pricing templates
+  This file contains common data processing and utility functions
+{% endcomment %}
 
+{% comment %} Sort all stations by price {% endcomment %}
+{% assign sorted_stations = resultado | sort_natural: 'Preco' %}
+
+{% comment %} Get cheapest station {% endcomment %}
+{% assign cheapest_station = sorted_stations | first %}
+
+{% comment %} Get most expensive station {% endcomment %}
+{% assign most_expensive_station = sorted_stations | last %}
+
+{% comment %} Calculate price difference {% endcomment %}
+{% if cheapest_station and most_expensive_station %}
+  {% assign price_cheapest = cheapest_station.Preco | remove: '€' | strip | replace: ',', '.' | times: 1 %}
+  {% assign price_expensive = most_expensive_station.Preco | remove: '€' | strip | replace: ',', '.' | times: 1 %}
+  {% assign price_difference = price_expensive | minus: price_cheapest %}
+{% endif %}
+
+{% comment %} Common base styles {% endcomment %}
+{% assign base_font = "font-family: monospace;" %}
+{% assign table_style = "border-collapse: collapse;" %}
+{% assign row_border = "border-bottom: 1px solid #ddd;" %}
+{% assign header_border = "border-bottom: 1px solid black;" %}

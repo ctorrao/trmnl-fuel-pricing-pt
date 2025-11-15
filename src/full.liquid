@@ -1,12 +1,8 @@
-{% assign stations = resultado | sort_natural: 'Preco' | slice: 0, 10 %}
+{% assign stations = sorted_stations | slice: 0, 10 %}
 
-<div style="font-family: monospace; padding: 10px;">
+<div style="{{ base_font }} padding: 10px;">
   <div style="text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid black; padding-bottom: 8px;">
     ⛽ PREÇOS GASOLINA 95 - VILA FRANCA DE XIRA
-  </div>
-
-  <div style="font-size: 12px; margin-bottom: 10px;">
-    Fonte dos dados: {{ status }}
   </div>
 
   {% if stations.size > 0 %}
@@ -39,14 +35,8 @@
       </tbody>
     </table>
     
-    {% assign cheapest = stations | first %}
-    {% assign most_expensive = resultado | sort_natural: 'Preco' | last %}
-    {% assign price_cheapest = cheapest.Preco | remove: '€' | strip | replace: ',', '.' | times: 1 %}
-    {% assign price_expensive = most_expensive.Preco | remove: '€' | strip | replace: ',', '.' | times: 1 %}
-    {% assign diff = price_expensive | minus: price_cheapest %}
-    
     <div style="margin-top: 10px; padding: 8px; background: #f0f0f0; font-size: 10px;">
-      <strong>💰 Poupança máxima:</strong> {{ diff | round: 3 }}€/litro ({{ cheapest.Marca }} vs {{ most_expensive.Marca }})
+      <strong>💰 Poupança máxima:</strong> {{ price_difference | round: 3 }}€/litro ({{ cheapest_station.Marca }} vs {{ most_expensive_station.Marca }})
     </div>
     
   {% else %}

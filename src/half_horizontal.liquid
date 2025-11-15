@@ -1,8 +1,8 @@
-{% assign stations = resultado | sort_natural: 'Preco' | slice: 0, 5 %}
+{% assign stations = sorted_stations | slice: 0, 5 %}
 
-<div style="font-family: monospace; padding: 8px;">
+<div style="{{ base_font }} padding: 8px;">
   <div style="text-align: center; font-size: 16px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid black; padding-bottom: 5px;">
-    ⛽ PREÇOS GASOLINA 95 - VFX
+    ⛽ PREÇOS GASOLINA 95 - VILA FRANCA DE XIRA
   </div>
   
   {% if status == true %}
@@ -13,19 +13,23 @@
     <table style="width: 100%; font-size: 9px; border-collapse: collapse;">
       <thead>
         <tr style="border-bottom: 1px solid black;">
-          <th style="text-align: left; padding: 2px;">#</th>
-          <th style="text-align: left; padding: 2px;">POSTO</th>
-          <th style="text-align: left; padding: 2px;">MARCA</th>
-          <th style="text-align: right; padding: 2px;">PREÇO</th>
+          <th style="text-align: left; padding: 4px;">#</th>
+          <th style="text-align: left; padding: 4px;">POSTO</th>
+          <th style="text-align: left; padding: 4px;">MARCA</th>
+          <th style="text-align: left; padding: 4px;">LOCALIDADE</th>
+          <th style="text-align: right; padding: 4px;">PREÇO</th>
+          <th style="text-align: center; padding: 4px;">ATUALIZADO</th>
         </tr>
       </thead>
       <tbody>
         {% for station in stations %}
           <tr style="border-bottom: 1px solid #ddd;">
-            <td style="padding: 2px;">{{ forloop.index }}</td>
-            <td style="padding: 2px;">{{ station.Nome | truncate: 15 }}</td>
-            <td style="padding: 2px;">{{ station.Marca | truncate: 10 }}</td>
-            <td style="padding: 2px; text-align: right; font-weight: bold;">{{ station.Preco }}</td>
+            <td style="padding: 4px;">{{ forloop.index }}</td>
+            <td style="padding: 4px;">{{ station.Nome | truncate: 40 }}</td>
+            <td style="padding: 4px;">{{ station.Marca | truncate: 12 }}</td>
+            <td style="padding: 4px;">{{ station.Localidade | truncate: 30 }}</td>
+            <td style="padding: 4px; text-align: right; font-weight: bold;">{{ station.Preco }}</td>
+            <td style="padding: 4px; text-align: center; font-size: 9px;">{{ station.DataAtualizacao | slice: 5, 5 }}</td>
           </tr>
         {% endfor %}
       </tbody>
