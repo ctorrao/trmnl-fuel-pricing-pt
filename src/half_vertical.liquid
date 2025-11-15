@@ -1,11 +1,12 @@
 {% assign stations = sorted_stations | slice: 0, 8 %}
+{% assign municipio_name = resultado.first.Municipio %}
 
 <div style="{{ base_font }} padding: 8px;">
   <div style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid black; padding-bottom: 5px;">
     ⛽ GASOLINA 95
   </div>
   <div style="text-align: center; font-size: 11px; margin-bottom: 8px;">
-    Vila Franca de Xira
+    {{ municipio_name }}
   </div>
   
   {% if status == true %}

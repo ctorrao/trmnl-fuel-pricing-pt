@@ -1,8 +1,9 @@
 {% assign stations = sorted_stations | slice: 0, 10 %}
+{% assign municipio_name = resultado.first.Municipio | upcase %}
 
 <div style="{{ base_font }} padding: 10px;">
   <div style="text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 15px; border-bottom: 2px solid black; padding-bottom: 8px;">
-    ⛽ PREÇOS GASOLINA 95 - VILA FRANCA DE XIRA
+    ⛽ PREÇOS GASOLINA 95 - {{ municipio_name }}
   </div>
 
   {% if stations.size > 0 %}
