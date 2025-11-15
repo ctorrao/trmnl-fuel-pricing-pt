@@ -30,7 +30,7 @@
             <td style="padding: 4px;">{{ station.Nome | truncate: 35 }}</td>
             <td style="padding: 4px;">{{ station.Marca | truncate: 12 }}</td>
             <td style="padding: 4px;">{{ station.Localidade | truncate: 30 }}</td>
-            <td style="padding: 4px; text-align: right; font-weight: bold; font-size: 14px;">{{ station.Preco }}/L</td>
+            <td style="padding: 4px; text-align: right; font-weight: bold; font-size: 14px;">{{ station.Preco }}</td>
             <td style="padding: 4px; text-align: center; font-size: 12px;">{{ station.DataAtualizacao | date: "%d %b" }}</td>
           </tr>
         {% endfor %}
@@ -56,5 +56,5 @@
 <div class="title_bar">
   <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
   <span class="title">Fuel Prices Portugal</span>
-  <span class="instance">Atualizado: {{ "now" | date: "%d/%m/%Y %H:%M" }}</span>
+  <span class="instance">Atualizado: {{ "now" | date: "%d-%m-%Y %H:%M" }}</span>
 </div>
