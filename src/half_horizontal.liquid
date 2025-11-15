@@ -1,0 +1,39 @@
+{% assign stations = resultado | sort_natural: 'Preco' | slice: 0, 5 %}
+
+<div style="font-family: monospace; padding: 8px;">
+  <div style="text-align: center; font-size: 16px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid black; padding-bottom: 5px;">
+    ⛽ PREÇOS GASOLINA 95 - VFX
+  </div>
+  
+  {% if status == true %}
+    <div style="font-size: 9px; margin-bottom: 3px;">
+      <strong>Top 5 Mais Baratos</strong>
+    </div>
+    
+    <table style="width: 100%; font-size: 9px; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 1px solid black;">
+          <th style="text-align: left; padding: 2px;">#</th>
+          <th style="text-align: left; padding: 2px;">POSTO</th>
+          <th style="text-align: left; padding: 2px;">MARCA</th>
+          <th style="text-align: right; padding: 2px;">PREÇO</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for station in stations %}
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 2px;">{{ forloop.index }}</td>
+            <td style="padding: 2px;">{{ station.Nome | truncate: 15 }}</td>
+            <td style="padding: 2px;">{{ station.Marca | truncate: 10 }}</td>
+            <td style="padding: 2px; text-align: right; font-weight: bold;">{{ station.Preco }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+  {% else %}
+    <div style="text-align: center; padding: 20px; font-size: 11px;">
+      ⚠️ Erro ao carregar dados
+    </div>
+  {% endif %}
+</div>

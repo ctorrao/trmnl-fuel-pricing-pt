@@ -1,0 +1,23 @@
+{% assign stations = resultado | sort_natural: 'Preco' | slice: 0, 3 %}
+
+<div style="font-family: monospace; padding: 5px;">
+  <div style="text-align: center; font-size: 11px; font-weight: bold; margin-bottom: 5px; border-bottom: 1px solid black; padding-bottom: 3px;">
+    ⛽ GASOLINA 95
+  </div>
+  
+  {% if status == true %}
+    
+    {% for station in stations %}
+      <div style="margin-bottom: 8px; padding: 4px; border: 1px solid #ddd; border-radius: 3px;">
+        <div style="font-size: 9px; font-weight: bold;">{{ forloop.index }}. {{ station.Marca }}</div>
+        <div style="font-size: 8px; color: #666;">{{ station.Localidade | truncate: 15 }}</div>
+        <div style="font-size: 11px; font-weight: bold; text-align: right; margin-top: 2px;">{{ station.Preco }}</div>
+      </div>
+    {% endfor %}
+    
+  {% else %}
+    <div style="text-align: center; padding: 10px; font-size: 8px;">
+      ⚠️ Erro
+    </div>
+  {% endif %}
+</div>

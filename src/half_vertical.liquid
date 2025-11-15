@@ -1,0 +1,43 @@
+{% assign stations = resultado | sort_natural: 'Preco' | slice: 0, 8 %}
+
+<div style="font-family: monospace; padding: 8px;">
+  <div style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid black; padding-bottom: 5px;">
+    ⛽ GASOLINA 95
+  </div>
+  <div style="text-align: center; font-size: 11px; margin-bottom: 8px;">
+    Vila Franca de Xira
+  </div>
+  
+  {% if status == true %}
+    
+    <table style="width: 100%; font-size: 9px; border-collapse: collapse;">
+      <thead>
+        <tr style="border-bottom: 1px solid black;">
+          <th style="text-align: left; padding: 3px;">POSTO</th>
+          <th style="text-align: right; padding: 3px;">PREÇO</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for station in stations %}
+          <tr style="border-bottom: 1px solid #ddd;">
+            <td style="padding: 3px;">
+              <div style="font-weight: bold;">{{ station.Marca }}</div>
+              <div style="font-size: 8px; color: #666;">{{ station.Localidade | truncate: 18 }}</div>
+            </td>
+            <td style="padding: 3px; text-align: right; font-weight: bold; font-size: 10px;">{{ station.Preco }}</td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+    
+    {% assign cheapest = stations | first %}
+    <div style="margin-top: 8px; padding: 5px; background: #f0f0f0; font-size: 8px; text-align: center;">
+      💰 Mais barato: {{ cheapest.Marca }} - {{ cheapest.Preco }}
+    </div>
+    
+  {% else %}
+    <div style="text-align: center; padding: 20px; font-size: 11px;">
+      ⚠️ Erro ao carregar dados
+    </div>
+  {% endif %}
+</div>
