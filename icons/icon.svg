@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="200" height="200" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Fuel pump body -->
+  <rect x="50" y="40" width="70" height="100" rx="8" fill="#000000" stroke="#000000" stroke-width="4"/>
+  
+  <!-- Display screen -->
+  <rect x="60" y="55" width="50" height="35" rx="4" fill="#FFFFFF"/>
+  
+  <!-- Fuel price text -->
+  <text x="85" y="78" font-family="Arial, sans-serif" font-size="16" font-weight="bold" text-anchor="middle" fill="#000000">€</text>
+  
+  <!-- Pump nozzle holder -->
+  <rect x="125" y="60" width="15" height="40" rx="4" fill="#000000"/>
+  
+  <!-- Nozzle hose -->
+  <path d="M 140 80 Q 160 80 160 100 L 160 120" stroke="#000000" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Nozzle -->
+  <path d="M 155 120 L 160 135 L 165 120 Z" fill="#000000"/>
+  <rect x="157" y="133" width="6" height="12" fill="#000000"/>
+  
+  <!-- Base/pump stand -->
+  <rect x="45" y="140" width="80" height="15" rx="4" fill="#000000"/>
+  
+  <!-- Portugal flag accent (small) -->
+  <circle cx="85" cy="105" r="8" fill="#FF0000"/>
+  <circle cx="85" cy="105" r="5" fill="#FFD700"/>
+  
+  <!-- Buttons on pump -->
+  <circle cx="70" cy="110" r="4" fill="#FFFFFF"/>
+  <circle cx="85" cy="110" r="4" fill="#FFFFFF"/>
+  <circle cx="100" cy="110" r="4" fill="#FFFFFF"/>
+</svg>
