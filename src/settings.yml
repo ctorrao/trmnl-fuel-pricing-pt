@@ -1,27 +1,21 @@
-#
-# Changes to this file will be overwritten by `trmnlp pull`.
-#
-# Docs: https://help.usetrmnl.com/en/articles/10542599-importing-and-exporting-private-plugins#h_581fb988f0
-#
 ---
-name: Fuel Prices Portugal
 strategy: polling
-refresh_interval: 360
-
-polling_verb: 'GET'
-polling_url: 'https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb=3201&idMarca=&idTipoPosto=&idDistrito=11&idsMunicipios=165&qtdPorPagina=20&pagina=1'
-polling_headers: 'Content-Type=application/json'
-
 no_screen_padding: 'no'
 dark_mode: 'no'
-
-# Custom form fields - these will be configurable in the TRMNL UI
+static_data: 
+polling_verb: GET
+polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb=3201&idMarca=&idTipoPosto=&idDistrito=11&idsMunicipios=165&qtdPorPagina=20&pagina=1
+polling_headers: Content-Type=application/json
+polling_body: 
+id: 181330
 custom_fields:
-  - keyname: distrito_id
-    name: District ID
-    field_type: string
-    default_value: '11'
-  - keyname: municipio_id
-    name: Municipality ID
-    field_type: string
-    default_value: '165'
+- keyname: distrito_id
+  name: District ID
+  field_type: string
+  default_value: '11'
+- keyname: municipio_id
+  name: Municipality ID
+  field_type: string
+  default_value: '165'
+name: Fuel Prices Portugal
+refresh_interval: 360
