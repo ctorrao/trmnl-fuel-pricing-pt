@@ -1,1 +1,23 @@
-/.DS_Store
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+
+# Cache
+.cache/
+
+# Temporary files
+*.tmp
+*.bak
