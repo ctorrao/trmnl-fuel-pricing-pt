@@ -9,17 +9,20 @@ polling_headers: Content-Type=application/json
 polling_body: 
 id: 181330
 custom_fields:
-- keyname : fuel_type_id
+- keyname: fuel_type_id
   name: Fuel Type ID
   field_type: string
   default_value: '3201'
+  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#fuel-type-ids
 - keyname: distrito_id
   name: District ID
   field_type: string
   default_value: '11'
+  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-ids
 - keyname: municipio_id
   name: Municipality ID
   field_type: string
   default_value: '165'
+  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-and-municipality-ids
 name: Fuel Prices Portugal
 refresh_interval: 360

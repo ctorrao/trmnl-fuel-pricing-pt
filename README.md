@@ -60,7 +60,8 @@ Source: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/GetDistritos
 
 | District | Municipality | ID |
 |----------|--------------|---:|
-| **Aveiro** (1) | Albergaria-a-Velha | 2 |
+| **Aveiro** (1) | Águeda | 1 |
+| | Albergaria-a-Velha | 2 |
 | | Anadia | 3 |
 | | Arouca | 4 |
 | | Aveiro | 5 |
@@ -77,7 +78,6 @@ Source: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/GetDistritos
 | | São João da Madeira | 16 |
 | | Vagos | 18 |
 | | Vale de Cambra | 19 |
-| | Águeda | 1 |
 | | Ílhavo | 9 |
 | **Beja** (2) | Aljustrel | 20 |
 | | Almodôvar | 21 |
