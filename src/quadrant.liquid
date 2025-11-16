@@ -4,10 +4,10 @@
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
 <div style="{{ base_font }} padding: 5px;">
-  <div style="text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 5px; border-bottom: 2px solid black; padding-bottom: 3px;">
+  <div class="text--center" style="font-size: 22px; font-weight: bold; margin-bottom: 5px; border-bottom: 2px solid black; padding-bottom: 3px;">
     {{ combustivel_name }}
   </div>
-  <div style="text-align: center; font-size: 16px; margin-bottom: 5px;">
+  <div class="text--center" style="font-size: 16px; margin-bottom: 5px;">
     {{ distrito_name }} / {{ municipio_name }}
   </div>
   
@@ -16,9 +16,9 @@
     <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
       <thead>
         <tr style="border-bottom: 1px solid black; background: #e0e0e0;">
-          <th style="text-align: left; padding: 2px; font-weight: bold;">#</th>
-          <th style="text-align: left; padding: 2px; font-weight: bold;">POSTO</th>
-          <th style="text-align: right; padding: 2px; font-weight: bold;">PREÇO</th>
+          <th class="text--left" style="padding: 2px; font-weight: bold;">#</th>
+          <th class="text--left" style="padding: 2px; font-weight: bold;">POSTO</th>
+          <th class="text--right" style="padding: 2px; font-weight: bold;">PREÇO</th>
         </tr>
       </thead>
       <tbody>
@@ -29,14 +29,14 @@
               <div style="font-weight: bold; font-size: 13px;">{{ station.Marca }}</div>
               <div style="font-size: 12px;">{{ station.Localidade | truncate: 20 }}</div>
             </td>
-            <td style="padding: 2px; text-align: right; font-weight: bold; font-size: 15px;">{{ station.Preco }}</td>
+            <td class="text--right" style="padding: 2px; font-weight: bold; font-size: 15px;">{{ station.Preco }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     
   {% else %}
-    <div style="text-align: center; padding: 15px; font-size: 16px; border: 2px solid black;">
+    <div class="text--center" style="padding: 15px; font-size: 16px; border: 2px solid black;">
       ERRO AO CARREGAR DADOS DA API
     </div>
   {% endif %}
