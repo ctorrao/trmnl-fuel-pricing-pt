@@ -16,6 +16,7 @@ custom_fields:
   github_url: https://github.com/ctorrao/trmnl-fuel-pricing-pt
   learn_more_url: https://github.com/ctorrao/trmnl-fuel-pricing-pt
 - keyname: fuel_type_id
+  name: Fuel Type
   field_type: select
   options:
   - Gasolina Simples 95: 3201
@@ -26,18 +27,36 @@ custom_fields:
   - Gasoleo Especial: 2105
   - GPL Auto: 1120
   default: 3201
-  name: Fuel Type
   help_text: Represents the type of fuel (e.g. gasoline, diesel) to display prices for.
 - keyname: distrito_id
   name: District ID
-  field_type: string
-  placeholder: '11'
+  field_type: select
+  options:
+  - Aveiro: 1
+  - Beja: 2
+  - Braga: 3
+  - Bragança: 4
+  - Castelo Branco: 5
+  - Coimbra: 6
+  - Évora: 7
+  - Faro: 8
+  - Guarda: 9
+  - Leiria: 10
+  - Lisboa: 11
+  - Portalegre: 12
+  - Porto: 13
+  - Santarém: 14
+  - Setúbal: 15
+  - Viana do Castelo: 16
+  - Vila Real: 17
+  - Viseu: 18
+  default: 11
   help_text: Represents the portuguese district to display prices for.
 - keyname: municipio_id
   name: Municipality ID
   field_type: string
   placeholder: '165'
-  help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district.
+  help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district. Check the GitHub repository link for a list of valid municipality IDs.
   optional: true
 name: Fuel Prices Portugal
 refresh_interval: 360
