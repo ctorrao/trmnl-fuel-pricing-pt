@@ -38,5 +38,6 @@ custom_fields:
   field_type: string
   placeholder: '165'
   help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district.
+  optional: true
 name: Fuel Prices Portugal
 refresh_interval: 360
