@@ -1,43 +1,43 @@
-{% assign stations = sorted_stations | slice: 0, 8 %}
-{% assign municipio_name = resultado.first.Municipio %}
+{% assign stations = sorted_stations | slice: 0, 10 %}
+{% assign municipio_name = resultado.first.Municipio | upcase %}
+{% assign distrito_name = resultado.first.Distrito | upcase %}
+{% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
 <div style="{{ base_font }} padding: 8px;">
-  <div style="text-align: center; font-size: 14px; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid black; padding-bottom: 5px;">
-    ⛽ GASOLINA 95
+  <div style="text-align: center; font-size: 22px; font-weight: bold; margin-bottom: 8px; border-bottom: 2px solid black; padding-bottom: 5px;">
+    {{ combustivel_name }}
   </div>
-  <div style="text-align: center; font-size: 11px; margin-bottom: 8px;">
-    {{ municipio_name }}
+  <div style="text-align: center; font-size: 16px; margin-bottom: 8px;">
+    {{ distrito_name }} / {{ municipio_name }}
   </div>
   
-  {% if status == true %}
+  {% if stations.size > 0 %}
     
-    <table style="width: 100%; font-size: 9px; border-collapse: collapse;">
+    <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
       <thead>
-        <tr style="border-bottom: 1px solid black;">
-          <th style="text-align: left; padding: 3px;">POSTO</th>
-          <th style="text-align: right; padding: 3px;">PREÇO</th>
+        <tr style="border-bottom: 1px solid black; background: #e0e0e0;">
+          <th style="text-align: left; padding: 3px; font-weight: bold;">#</th>
+          <th style="text-align: left; padding: 3px; font-weight: bold;">POSTO</th>
+          <th style="text-align: right; padding: 3px; font-weight: bold;">PREÇO</th>
         </tr>
       </thead>
       <tbody>
         {% for station in stations %}
-          <tr style="border-bottom: 1px solid #ddd;">
+          <tr style="border-bottom: 1px solid #999;">
+            <td style="padding: 3px; font-weight: bold;">{{ forloop.index }}</td>
             <td style="padding: 3px;">
               <div style="font-weight: bold;">{{ station.Marca }}</div>
-              <div style="font-size: 8px; color: #666;">{{ station.Localidade | truncate: 30 }}</div>
+              <div style="font-size: 12px;">{{ station.Localidade | truncate: 30 }}</div>
             </td>
-            <td style="padding: 3px; text-align: right; font-weight: bold; font-size: 10px;">{{ station.Preco }}</td>
+            <td style="padding: 3px; text-align: right; font-weight: bold; font-size: 15px;">{{ station.Preco }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     
-    <div style="margin-top: 8px; padding: 5px; background: #f0f0f0; font-size: 8px; text-align: center;">
-      💰 Mais barato: {{ cheapest_station.Marca }} - {{ cheapest_station.Preco }}
-    </div>
-    
   {% else %}
-    <div style="text-align: center; padding: 20px; font-size: 11px;">
-      ⚠️ Erro ao carregar dados
+    <div style="text-align: center; padding: 20px; font-size: 16px; border: 2px solid black;">
+      ERRO AO CARREGAR DADOS DA API
     </div>
   {% endif %}
 </div>
