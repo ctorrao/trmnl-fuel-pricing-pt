@@ -3,40 +3,40 @@
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
-<div style="{{ base_font }} padding: 8px;">
-  <div class="text--center" style="font-size: 22px; font-weight: bold; margin-bottom: 8px; border-bottom: 2px solid black; padding-bottom: 5px;">
+<div class="p--2" style="{{ base_font }}">
+  <div class="text--center text--xl mb--2 pb--1.25" style="font-weight: bold; border-bottom: 2px solid black;">
     {{ combustivel_name }}
   </div>
-  <div class="text--center" style="font-size: 16px; margin-bottom: 8px;">
+  <div class="text--center text--base mb--2">
     {{ distrito_name }} / {{ municipio_name }}
   </div>
   
   {% if stations.size > 0 %}
     
-    <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+    <table class="text--sm" style="width: 100%; border-collapse: collapse;">
       <thead>
         <tr class="bg--gray-60" style="border-bottom: 1px solid black;">
-          <th class="text--left" style="padding: 3px; font-weight: bold;">#</th>
-          <th class="text--left" style="padding: 3px; font-weight: bold;">POSTO</th>
-          <th class="text--right" style="padding: 3px; font-weight: bold;">PREÇO</th>
+          <th class="text--left p--0.75" style="font-weight: bold;">#</th>
+          <th class="text--left p--0.75" style="font-weight: bold;">POSTO</th>
+          <th class="text--right p--0.75" style="font-weight: bold;">PREÇO</th>
         </tr>
       </thead>
       <tbody>
         {% for station in stations %}
           <tr style="border-bottom: 1px solid #999;">
-            <td style="padding: 3px; font-weight: bold;">{{ forloop.index }}</td>
-            <td style="padding: 3px;">
+            <td class="p--0.75" style="font-weight: bold;">{{ forloop.index }}</td>
+            <td class="p--0.75">
               <div style="font-weight: bold;">{{ station.Marca }}</div>
-              <div style="font-size: 12px;">{{ station.Localidade | truncate: 30 }}</div>
+              <div class="text--xs">{{ station.Localidade | truncate: 30 }}</div>
             </td>
-            <td class="text--right" style="padding: 3px; font-weight: bold; font-size: 15px;">{{ station.Preco }}</td>
+            <td class="text--right text--sm p--0.75" style="font-weight: bold;">{{ station.Preco }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     
   {% else %}
-    <div class="text--center" style="padding: 20px; font-size: 16px; border: 2px solid black;">
+    <div class="text--center text--base p--5" style="border: 2px solid black;">
       ERRO AO CARREGAR DADOS DA API
     </div>
   {% endif %}

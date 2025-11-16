@@ -3,45 +3,45 @@
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
-<div style="{{ base_font }} padding: 8px;">
-  <div class="text--center" style="font-size: 22px; font-weight: bold; margin-bottom: 12px; border-bottom: 3px solid black; padding-bottom: 6px;">
+<div class="p--2" style="{{ base_font }}">
+  <div class="text--center text--xl mb--3 pb--1.5" style="font-weight: bold; border-bottom: 3px solid black;">
     {{ combustivel_name }} - {{ distrito_name }} / {{ municipio_name }}
   </div>
 
   {% if stations.size > 0 %}
-    <div style="font-size: 14px; margin-bottom: 4px; font-weight: bold;">
+    <div class="text--sm mb--1" style="font-weight: bold;">
       Top 5 Mais Baratos
     </div>
     
-    <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
+    <table class="text--sm" style="width: 100%; border-collapse: collapse;">
       <thead>
         <tr class="bg--gray-60" style="border-bottom: 2px solid black;">
-          <th class="text--left" style="padding: 4px; font-weight: bold;">#</th>
-          <th class="text--left" style="padding: 4px; font-weight: bold;">POSTO</th>
-          <th class="text--left" style="padding: 4px; font-weight: bold;">MARCA</th>
-          <th class="text--left" style="padding: 4px; font-weight: bold;">LOCALIDADE</th>
-          <th class="text--left" style="padding: 4px; font-weight: bold;">PREÇO</th>
-          <th class="text--left" style="padding: 4px; font-weight: bold;">ATUALIZ.</th>
+          <th class="text--left p--1" style="font-weight: bold;">#</th>
+          <th class="text--left p--1" style="font-weight: bold;">POSTO</th>
+          <th class="text--left p--1" style="font-weight: bold;">MARCA</th>
+          <th class="text--left p--1" style="font-weight: bold;">LOCALIDADE</th>
+          <th class="text--left p--1" style="font-weight: bold;">PREÇO</th>
+          <th class="text--left p--1" style="font-weight: bold;">ATUALIZ.</th>
         </tr>
       </thead>
       <tbody>
         {% for station in stations %}
           <tr style="border-bottom: 1px solid #999;">
-            <td style="padding: 4px; font-weight: bold;">{{ forloop.index }}</td>
-            <td style="padding: 4px;">{{ station.Nome | truncate: 35 }}</td>
-            <td style="padding: 4px;">{{ station.Marca | truncate: 12 }}</td>
-            <td style="padding: 4px;">{{ station.Localidade | truncate: 30 }}</td>
-            <td class="text--right" style="padding: 4px; font-weight: bold; font-size: 14px;">{{ station.Preco }}</td>
-            <td class="text--center" style="padding: 4px; font-size: 12px;">{{ station.DataAtualizacao | date: "%d %b" }}</td>
+            <td class="p--1" style="font-weight: bold;">{{ forloop.index }}</td>
+            <td class="p--1">{{ station.Nome | truncate: 35 }}</td>
+            <td class="p--1">{{ station.Marca | truncate: 12 }}</td>
+            <td class="p--1">{{ station.Localidade | truncate: 30 }}</td>
+            <td class="text--right text--sm p--1" style="font-weight: bold;">{{ station.Preco }}</td>
+            <td class="text--center text--xs p--1">{{ station.DataAtualizacao | date: "%d %b" }}</td>
           </tr>
         {% endfor %}
       </tbody>
     </table>
     
   {% else %}
-    <div class="text--center" style="padding: 40px; font-size: 16px; border: 2px solid black;">
+    <div class="text--center text--base p--10" style="border: 2px solid black;">
       ERRO AO CARREGAR DADOS DA API<br>
-      <div style="font-size: 12px; margin-top: 10px;">
+      <div class="text--xs mt--2.5">
         Debug: markup size = {{ markup.size }}<br>
         status = {{ markup.status }}<br>
         resultado size = {{ markup.resultado.size }}
