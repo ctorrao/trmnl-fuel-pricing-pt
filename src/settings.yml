@@ -3,26 +3,40 @@ strategy: polling
 no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: 
-polling_verb: GET
+polling_verb: get
 polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb={{ fuel_type_id }}&idMarca=&idTipoPosto=&idDistrito={{ distrito_id }}&idsMunicipios={{ municipio_id }}&qtdPorPagina=20&pagina=1
 polling_headers: Content-Type=application/json
 polling_body: 
 id: 181330
 custom_fields:
+- keyname: author_bio
+  name: About This Plugin
+  field_type: author_bio
+  description: Show cheapest fuel prices in Portugal from official government data. Check the GitHub repository for more details on how to configure and use this plugin.
+  github_url: https://github.com/ctorrao/trmnl-fuel-pricing-pt
+  learn_more_url: https://github.com/ctorrao/trmnl-fuel-pricing-pt
 - keyname: fuel_type_id
-  name: Fuel Type ID
-  field_type: string
-  default_value: '3201'
-  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#fuel-type-ids
+  field_type: select
+  options:
+  - Gasolina Simples 95: 3201
+  - Gasolina Simples 98: 3400
+  - Gasóleo Simples: 2101
+  - Gasolina Especial 95: 3205
+  - Gasolina Especial 98: 3405
+  - Gasoleo Especial: 2105
+  - GPL Auto: 1120
+  default: 3201
+  name: Fuel Type
+  help_text: Represents the type of fuel (e.g. gasoline, diesel) to display prices for.
 - keyname: distrito_id
   name: District ID
   field_type: string
-  default_value: '11'
-  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-ids
+  placeholder: '11'
+  help_text: Represents the portuguese district to display prices for.
 - keyname: municipio_id
   name: Municipality ID
   field_type: string
-  default_value: '165'
-  help_text: Find the possible IDs in https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-and-municipality-ids
+  placeholder: '165'
+  help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district.
 name: Fuel Prices Portugal
 refresh_interval: 360
