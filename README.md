@@ -8,7 +8,9 @@ A [TRMNL](https://usetrmnl.com/) plugin that displays real-time fuel prices (Gas
 - 💰 Shows potential savings between cheapest and most expensive options
 - 🔄 Polls for updates every 6 hours (360 minutes)
 - 🎨 Multiple layout options: full, half (horizontal/vertical), and quadrant views
-- 📍 Filters by district (Lisboa) and municipality (Vila Franca de Xira)
+- 📍 Filters by district (required) and optionally by municipality
+- 🎛️ Configurable fuel type selection (Gasoline 95/98, Diesel, GPL, etc.)
+- ✨ Enhanced layouts with improved readability and data presentation
 
 ## Data Source
 
@@ -482,13 +484,21 @@ refresh_interval: 360  # minutes
 
 ### API Parameters
 
-The current configuration searches for:
-- **Fuel Type**: Gasolina simples 95 (ID: 3201)
-- **District**: Lisboa (ID: 11)
-- **Municipality**: Vila Franca de Xira (ID: 165)
-- **Results per page**: 50
+The plugin can be configured through the TRMNL web interface with the following options:
 
-To change the search parameters, modify the `polling_url` in `src/settings.yml`.
+- **Fuel Type**: Select from dropdown (default: Gasolina simples 95, ID: 3201)
+  - Gasolina Simples 95, 98
+  - Gasóleo Simples/Especial
+  - GPL Auto
+  - And more
+- **District**: Select from dropdown (default: Lisboa, ID: 11)
+  - All 18 Portuguese districts available
+- **Municipality**: Optional text field (leave empty to search entire district)
+  - Example: 165 for Vila Franca de Xira
+  - See tables above for complete list of municipality IDs
+- **Results per page**: 20 stations (fixed)
+
+These settings can be configured directly in the TRMNL web interface without editing code.
 
 ## Testing
 
@@ -497,13 +507,17 @@ Use the included `response_example.json` file to test layouts without making API
 ## Display Information
 
 The plugin shows:
-- Station ranking (1-10)
-- Station name
-- Brand
-- Location
+- Station ranking (up to 10 stations depending on layout)
+- Station name and brand
+- Location (municipality/locality)
 - Price (in €/liter)
 - Last update date
-- Maximum savings comparison
+- Maximum savings comparison (difference between cheapest and highest price)
+
+**Layout Capacities:**
+- Full layout: Displays up to 10 stations
+- Half layouts (horizontal/vertical): Displays up to 10 stations
+- Quadrant layout: Displays up to 5 stations
 
 ## License
 
