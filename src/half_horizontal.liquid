@@ -3,51 +3,50 @@
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
-<div class="p--2" style="{{ base_font }}">
-  <div class="text--center text--xl mb--3 pb--1.5" style="font-weight: bold; border-bottom: 3px solid black;">
-    {{ combustivel_name }} - {{ distrito_name }} / {{ municipio_name }}
-  </div>
+<div class="layout layout--col">
+  <div class="p--2" style="{{ base_font }}">
 
-  {% if stations.size > 0 %}
-    <div class="text--sm mb--1" style="font-weight: bold;">
-      Top 5 Mais Baratos
-    </div>
-    
-    <table class="text--sm" style="width: 100%; border-collapse: collapse;">
-      <thead>
-        <tr class="bg--gray-60" style="border-bottom: 2px solid black;">
-          <th class="text--left p--1" style="font-weight: bold;">#</th>
-          <th class="text--left p--1" style="font-weight: bold;">POSTO</th>
-          <th class="text--left p--1" style="font-weight: bold;">MARCA</th>
-          <th class="text--left p--1" style="font-weight: bold;">LOCALIDADE</th>
-          <th class="text--left p--1" style="font-weight: bold;">PREÇO</th>
-          <th class="text--left p--1" style="font-weight: bold;">ATUALIZ.</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for station in stations %}
-          <tr style="border-bottom: 1px solid #999;">
-            <td class="p--1" style="font-weight: bold;">{{ forloop.index }}</td>
-            <td class="p--1">{{ station.Nome | truncate: 35 }}</td>
-            <td class="p--1">{{ station.Marca | truncate: 12 }}</td>
-            <td class="p--1">{{ station.Localidade | truncate: 30 }}</td>
-            <td class="text--right text--sm p--1" style="font-weight: bold;">{{ station.Preco }}</td>
-            <td class="text--center text--xs p--1">{{ station.DataAtualizacao | date: "%d %b" }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    
-  {% else %}
-    <div class="text--center text--base p--10" style="border: 2px solid black;">
-      ERRO AO CARREGAR DADOS DA API<br>
-      <div class="text--xs mt--2.5">
-        Debug: markup size = {{ markup.size }}<br>
-        status = {{ markup.status }}<br>
-        resultado size = {{ markup.resultado.size }}
+    {% if stations.size > 0 %}
+      <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
+        Top 5 Mais Baratos - {{ combustivel_name }} - {{ municipio_name }} ({{ distrito_name }})
       </div>
-    </div>
-  {% endif %}
+      
+      <table class="text--sm" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr class="bg--gray-60" style="border-bottom: 2px solid black;">
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">#</th>
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">MARCA</th>
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">LOCALIDADE</th>
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">PREÇO</th>
+            <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">ATUALIZ.</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for station in stations %}
+            <tr style="border-bottom: 1px solid #999;">
+              <td class="p--1" data-pixel-perfect="true" style="font-weight: bold;">{{ forloop.index }}</td>
+              <td class="p--1" data-pixel-perfect="true">{{ station.Nome | truncate: 35 }}</td>
+              <td class="p--1" data-pixel-perfect="true">{{ station.Marca | truncate: 12 }}</td>
+              <td class="p--1" data-pixel-perfect="true">{{ station.Localidade | truncate: 30 }}</td>
+              <td class="text--right text--sm p--1" data-pixel-perfect="true" style="font-weight: bold;">{{ station.Preco }}</td>
+              <td class="text--center text--xs p--1" data-pixel-perfect="true">{{ station.DataAtualizacao | date: "%d %b" }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+    {% else %}
+      <div class="text--center text--base p--10" data-pixel-perfect="true" style="border: 2px solid black;">
+        ERRO AO CARREGAR DADOS DA API<br>
+        <div class="text--xs mt--2.5" data-pixel-perfect="true">
+          Debug: markup size = {{ markup.size }}<br>
+          status = {{ markup.status }}<br>
+          resultado size = {{ markup.resultado.size }}
+        </div>
+      </div>
+    {% endif %}
+  </div>
 </div>
 
 <div class="title_bar">

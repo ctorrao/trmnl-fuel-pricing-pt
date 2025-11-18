@@ -56,7 +56,7 @@ custom_fields:
   name: Municipality ID
   field_type: string
   placeholder: '165'
-  help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district. Check the GitHub repository link for a list of valid municipality IDs.
+  help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district. To find your municipality ID, <a href="https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-and-municipality-ids">check the GitHub repository</a>.
   optional: true
 name: Fuel Prices Portugal
 refresh_interval: 360
