@@ -3,41 +3,49 @@
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
-<div style="{{ base_font }} padding: 8px;">
-  <div class="text--center" style="font-size: 22px; font-weight: bold; margin-bottom: 8px; border-bottom: 2px solid black; padding-bottom: 5px;">
-    {{ combustivel_name }}
-  </div>
-  <div class="text--center" style="font-size: 16px; margin-bottom: 8px;">
-    {{ distrito_name }} / {{ municipio_name }}
-  </div>
-  
-  {% if stations.size > 0 %}
-    
-    <table style="width: 100%; font-size: 13px; border-collapse: collapse;">
-      <thead>
-        <tr class="bg--gray-60" style="border-bottom: 1px solid black;">
-          <th class="text--left" style="padding: 3px; font-weight: bold;">#</th>
-          <th class="text--left" style="padding: 3px; font-weight: bold;">POSTO</th>
-          <th class="text--right" style="padding: 3px; font-weight: bold;">PREÇO</th>
-        </tr>
-      </thead>
-      <tbody>
-        {% for station in stations %}
-          <tr style="border-bottom: 1px solid #999;">
-            <td style="padding: 3px; font-weight: bold;">{{ forloop.index }}</td>
-            <td style="padding: 3px;">
-              <div style="font-weight: bold;">{{ station.Marca }}</div>
-              <div style="font-size: 12px;">{{ station.Localidade | truncate: 30 }}</div>
-            </td>
-            <td class="text--right" style="padding: 3px; font-weight: bold; font-size: 15px;">{{ station.Preco }}</td>
-          </tr>
-        {% endfor %}
-      </tbody>
-    </table>
-    
-  {% else %}
-    <div class="text--center" style="padding: 20px; font-size: 16px; border: 2px solid black;">
-      ERRO AO CARREGAR DADOS DA API
+<div class="layout layout--col">
+  <div class="p--2" style="{{ base_font }}">
+    <div class="text--center value value--xxsmall mb--3 pb--1.5" data-pixel-perfect="true" style="font-weight: bold; border-bottom: 2px solid black;">
+      {{ combustivel_name }}
     </div>
-  {% endif %}
+
+    {% if stations.size > 0 %}
+      <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
+        {{ municipio_name }} ({{ distrito_name }})
+      </div>
+      
+      <table class="text--sm" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr class="bg--gray-60" style="border-bottom: 1px solid black;">
+            <th class="text--left p--0.75" data-pixel-perfect="true" style="font-weight: bold;">#</th>
+            <th class="text--left p--0.75" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
+            <th class="text--right p--0.75" data-pixel-perfect="true" style="font-weight: bold;">PREÇO</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for station in stations %}
+            <tr style="border-bottom: 1px solid #999;">
+              <td class="p--0.75" data-pixel-perfect="true" style="font-weight: bold;">{{ forloop.index }}</td>
+              <td class="p--0.75" data-pixel-perfect="true">
+                <div data-pixel-perfect="true" style="font-weight: bold;">{{ station.Marca }}</div>
+                <div class="text--xs" data-pixel-perfect="true">{{ station.Localidade | truncate: 30 }}</div>
+              </td>
+              <td class="text--right text--sm p--0.75" data-pixel-perfect="true" style="font-weight: bold;">{{ station.Preco }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      
+    {% else %}
+      <div class="text--center text--base p--5" data-pixel-perfect="true" style="border: 2px solid black;">
+        ERRO AO CARREGAR DADOS DA API
+      </div>
+    {% endif %}
+  </div>
+</div>
+
+<div class="title_bar">
+  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
+  <span class="instance">{{ "now" | date: "%d-%m-%Y %H:%M" }}</span>
 </div>
