@@ -1,22 +1,19 @@
-{% assign stations = sorted_stations | slice: 0, 4 %}
+{% assign stations = sorted_stations | slice: 0, 5 %}
 {% assign municipio_name = resultado.first.Municipio | upcase %}
 {% assign distrito_name = resultado.first.Distrito | upcase %}
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
 <div class="layout layout--col">
   <div class="p--2" style="{{ base_font }}">
-    <div class="text--center value value--xxsmall mb--3 pb--1.5" data-pixel-perfect="true" style="font-weight: bold; border-bottom: 2px solid black;">
-      {{ combustivel_name }}
-    </div>
 
     {% if stations.size > 0 %}
       <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
-        {{ municipio_name }} ({{ distrito_name }})
+        {{ municipio_name }}
       </div>
       
-      <table class="text--sm" style="width: 100%; border-collapse: collapse;">
+      <table class="table table--xsmall table--indexed" data-table-limit="true">
         <thead>
-          <tr class="bg--gray-60" style="border-bottom: 1px solid black;">
+          <tr class="bg--gray-60">
             <th class="text--left p--0.5" data-pixel-perfect="true" style="font-weight: bold;">#</th>
             <th class="text--left p--0.5" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
             <th class="text--right p--0.5" data-pixel-perfect="true" style="font-weight: bold;">PREÇO</th>
@@ -24,11 +21,11 @@
         </thead>
         <tbody>
           {% for station in stations %}
-            <tr style="border-bottom: 1px solid #999;">
-              <td class="p--0.5" data-pixel-perfect="true" style="font-weight: bold;">{{ forloop.index }}</td>
+            <tr>
+              <td><span class="meta index">{{ forloop.index }}</span></td>
               <td class="p--0.5" data-pixel-perfect="true">
                 <div class="text--sm" data-pixel-perfect="true" style="font-weight: bold;">{{ station.Marca }}</div>
-                <div class="text--xs" data-pixel-perfect="true">{{ station.Localidade | truncate: 20 }}</div>
+                <div class="text--xs" data-pixel-perfect="true">{{ station.Localidade | truncate: 25 }}</div>
               </td>
               <td class="text--right text--sm p--0.5" data-pixel-perfect="true" style="font-weight: bold;">{{ station.Preco }}</td>
             </tr>

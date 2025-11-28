@@ -5,18 +5,18 @@
 
 <div class="layout layout--col">
   <div class="p--2" style="{{ base_font }}">
-    <div class="text--center value value--xxsmall mb--3 pb--1.5" data-pixel-perfect="true" style="font-weight: bold; border-bottom: 2px solid black;">
+    <div class="text--center title title--xxsmall mb--3 pb--1.5" data-pixel-perfect="true" style="border-bottom: 2px solid black;">
       {{ combustivel_name }}
     </div>
 
     {% if stations.size > 0 %}
-      <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
+      <div class="text--center title title--xxsmall mb--1.5" data-pixel-perfect="true">
         {{ municipio_name }} ({{ distrito_name }})
       </div>
       
-      <table class="text--sm" style="width: 100%; border-collapse: collapse;">
+      <table class="table table--xsmall table--indexed" data-table-limit="true">
         <thead>
-          <tr class="bg--gray-60" style="border-bottom: 1px solid black;">
+          <tr class="bg--gray-60">
             <th class="text--left p--0.75" data-pixel-perfect="true" style="font-weight: bold;">#</th>
             <th class="text--left p--0.75" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
             <th class="text--right p--0.75" data-pixel-perfect="true" style="font-weight: bold;">PREÇO</th>
@@ -24,8 +24,8 @@
         </thead>
         <tbody>
           {% for station in stations %}
-            <tr style="border-bottom: 1px solid #999;">
-              <td class="p--0.75" data-pixel-perfect="true" style="font-weight: bold;">{{ forloop.index }}</td>
+            <tr>
+              <td><span class="meta index">{{ forloop.index }}</span></td>
               <td class="p--0.75" data-pixel-perfect="true">
                 <div data-pixel-perfect="true" style="font-weight: bold;">{{ station.Marca }}</div>
                 <div class="text--xs" data-pixel-perfect="true">{{ station.Localidade | truncate: 30 }}</div>
@@ -47,5 +47,5 @@
 <div class="title_bar">
   <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
   <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
-  <span class="instance">{{ "now" | date: "%d-%m-%Y %H:%M" }}</span>
+  <span class="instance">{{ "now" | date: "%d-%m %H:%M" }}</span>
 </div>

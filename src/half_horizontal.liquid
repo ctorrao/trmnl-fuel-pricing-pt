@@ -7,13 +7,13 @@
   <div class="p--2" style="{{ base_font }}">
 
     {% if stations.size > 0 %}
-      <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
-        Top 5 Mais Baratos - {{ combustivel_name }} - {{ municipio_name }} ({{ distrito_name }})
+      <div class="text--center title title--xxsmall mb--1.5" data-pixel-perfect="true">
+        Top 5 - {{ combustivel_name }} - {{ municipio_name }} ({{ distrito_name }})
       </div>
       
-      <table class="text--sm" style="width: 100%; border-collapse: collapse;">
+      <table class="table table--xsmall table--indexed" data-table-limit="true">
         <thead>
-          <tr class="bg--gray-60" style="border-bottom: 2px solid black;">
+          <tr class="bg--gray-60">
             <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">#</th>
             <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
             <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">MARCA</th>
@@ -24,8 +24,8 @@
         </thead>
         <tbody>
           {% for station in stations %}
-            <tr style="border-bottom: 1px solid #999;">
-              <td class="p--1" data-pixel-perfect="true" style="font-weight: bold;">{{ forloop.index }}</td>
+            <tr>
+              <td><span class="meta index">{{ forloop.index }}</span></td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Nome | truncate: 35 }}</td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Marca | truncate: 12 }}</td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Localidade | truncate: 30 }}</td>
