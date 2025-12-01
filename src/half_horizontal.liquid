@@ -11,7 +11,7 @@
         Top 5 - {{ combustivel_name }} - {{ municipio_name }} ({{ distrito_name }})
       </div>
       
-      <table class="table table--xsmall table--indexed" data-table-limit="true">
+      <table class="table table--xsmall table--indexed text-stroke" data-table-limit="true">
         <thead>
           <tr class="bg--gray-60">
             <th class="text--left p--1" data-pixel-perfect="true" style="font-weight: bold;">#</th>
@@ -25,7 +25,7 @@
         <tbody>
           {% for station in stations %}
             <tr>
-              <td><span class="meta index">{{ forloop.index }}</span></td>
+              <td><span class="meta index text-stroke text-stroke--small">{{ forloop.index }}</span></td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Nome | truncate: 35 }}</td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Marca | truncate: 12 }}</td>
               <td class="p--1" data-pixel-perfect="true">{{ station.Localidade | truncate: 30 }}</td>
@@ -50,7 +50,7 @@
 </div>
 
 <div class="title_bar">
-  <img class="image" src="https://usetrmnl.com/images/plugins/trmnl--render.svg">
+  <img class="image" src="https://upload.wikimedia.org/wikipedia/commons/d/db/Gasoline_by_Mitchell_Geere.svg">
   <span class="title">{{ trmnl.plugin_settings.instance_name }}</span>
   <span class="instance">Atualizado: {{ "now" | date: "%d-%m-%Y %H:%M" }}</span>
 </div>

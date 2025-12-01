@@ -4,7 +4,7 @@
 {% assign combustivel_name = resultado.first.Combustivel | upcase %}
 
 <div class="layout layout--col">
-  <div class="p--2" style="{{ base_font }}">
+  <div class="p--2 w--full" style="{{ base_font }}">
 
     {% if stations.size > 0 %}
       <div class="text--center value value--xxsmall mb--1.5" data-pixel-perfect="true">
@@ -13,7 +13,7 @@
       
       <table class="table table--xsmall table--indexed" data-table-limit="true">
         <thead>
-          <tr class="bg--gray-60">
+          <tr class="bg--gray-60 text-stroke">
             <th class="text--left p--0.5" data-pixel-perfect="true" style="font-weight: bold;">#</th>
             <th class="text--left p--0.5" data-pixel-perfect="true" style="font-weight: bold;">POSTO</th>
             <th class="text--right p--0.5" data-pixel-perfect="true" style="font-weight: bold;">PREÇO</th>
@@ -22,7 +22,7 @@
         <tbody>
           {% for station in stations %}
             <tr>
-              <td><span class="meta index">{{ forloop.index }}</span></td>
+              <td><span class="meta index text-stroke text-stroke--small">{{ forloop.index }}</span></td>
               <td class="p--0.5" data-pixel-perfect="true">
                 <div class="text--sm" data-pixel-perfect="true" style="font-weight: bold;">{{ station.Marca }}</div>
                 <div class="text--xs" data-pixel-perfect="true">{{ station.Localidade | truncate: 25 }}</div>
