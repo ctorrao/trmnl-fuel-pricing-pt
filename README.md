@@ -1,6 +1,6 @@
 # Fuel Prices PT - TRMNL Plugin
 
-A [TRMNL](https://usetrmnl.com/) plugin that displays real-time fuel prices (Gasolina 95) for gas stations in Vila Franca de Xira, Portugal. The data is fetched from the official Portuguese government fuel price database (DGEG - Direção-Geral de Energia e Geologia).
+A [TRMNL](https://usetrmnl.com/) plugin that displays real-time fuel prices for gas stations in Districts and Municipalities from Portugal. The data is fetched from the official Portuguese government fuel price database (DGEG - Direção-Geral de Energia e Geologia).
 
 ## Features
 
@@ -16,8 +16,6 @@ A [TRMNL](https://usetrmnl.com/) plugin that displays real-time fuel prices (Gas
 
 This plugin fetches data from the official Portuguese fuel price API:
 - **API**: `precoscombustiveis.dgeg.gov.pt`
-- **Fuel Type**: Gasolina simples 95 (unleaded gasoline 95)
-- **Location**: Vila Franca de Xira, Distrito de Lisboa
 
 #### Fuel Type IDs
 
