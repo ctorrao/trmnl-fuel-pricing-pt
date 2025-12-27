@@ -4,7 +4,7 @@ no_screen_padding: 'no'
 dark_mode: 'no'
 static_data: 
 polling_verb: get
-polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb={{ fuel_type_id }}&idMarca=&idTipoPosto=&idDistrito={{ distrito_id }}&idsMunicipios={{ municipio_id }}&qtdPorPagina=20&pagina=1
+polling_url: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/PesquisarPostos?idsTiposComb={{ fuel_type_id }}&idMarca={{ marca_id }}&idTipoPosto=&idDistrito={{ distrito_id }}&idsMunicipios={{ municipio_id }}&qtdPorPagina=20&pagina=1
 polling_headers: Content-Type=application/json
 polling_body: 
 id: 181330
@@ -57,6 +57,91 @@ custom_fields:
   field_type: string
   placeholder: '165'
   help_text: Represents the portuguese municipality to display prices for. Leave it empty to include all municipalities in the selected district. To find your municipality ID, <a href="https://github.com/ctorrao/trmnl-fuel-pricing-pt?tab=readme-ov-file#district-and-municipality-ids">check the GitHub repository</a>.
+  optional: true
+- keyname: marca_id
+  name: Fuel Brand
+  field_type: select
+  options:
+  - All Brands: ''
+  - AGIP: 1
+  - ALVES BANDEIRA: 2
+  - ANIBAL ANTUNES BANDEIRA: 3
+  - ATLANTIC OIL: 4
+  - AUCHAN: 5
+  - AUTO JULIO: 6
+  - AVIA: 7
+  - AZORIA: 8
+  - BEQ: 9
+  - BOMBAGÁS: 10
+  - BP: 11
+  - BXPRESS: 12
+  - CARLOS BALTAZAR: 13
+  - CARRASQUINHO & FILHOS: 14
+  - CEPSA: 15
+  - CHAMAGÁS: 73
+  - CIDADE N'ALDEIA: 16
+  - CIPOL: 17
+  - CONTINENTE: 18
+  - CREIXOAUTO: 19
+  - DOUROGAS NATURAL: 20
+  - DPC: 21
+  - DPP: 22
+  - ECOBRENT: 23
+  - ECOMARCHÉ: 24
+  - EFICE ENERGY: 76
+  - ESSO: 25
+  - ETC: 26
+  - FG COMBUSTÍVEIS: 67
+  - FREITAS: 27
+  - FUELTEJO: 28
+  - GALP: 29
+  - GAPOR: 30
+  - GASOLAR: 31
+  - GASPE: 32
+  - GASPROCAR: 33
+  - G-ENERGY: 34
+  - Genérico: 35
+  - GOTA: 36
+  - ILÍDIO MOTA: 37
+  - INTERMARCHÉ: 38
+  - JUMBO: 39
+  - LECLERC: 40
+  - LUBRIDÃO: 41
+  - LUSIADAGÁS: 42
+  - MOEVE: 72
+  - NOVA: 78
+  - OFIMAQ: 43
+  - OLEOFAT: 44
+  - OZ Energia: 45
+  - PETRIN: 46
+  - PETRO BASTO: 47
+  - PETROALVA: 48
+  - PETROIBÉRICA: 49
+  - PETROPRIX: 71
+  - PETROVARIANTE: 50
+  - PETROVAZ: 51
+  - PINGO DOCE: 52
+  - PLENERGY: 74
+  - PRIO: 53
+  - PRONTO: 70
+  - Q8: 54
+  - RAPEL: 77
+  - RECHEIO: 55
+  - REDE ENERGIA: 56
+  - REDIL: 57
+  - REPSOL: 58
+  - SCAM: 59
+  - SHELL: 60
+  - SOPOR: 61
+  - TFUEL: 62
+  - TRANSFORPEL: 63
+  - TRAVESSO: 64
+  - TUACAR: 65
+  - VALCARCE: 68
+  - VIA: 69
+  - VIBAGÁS: 66
+  default: ''
+  help_text: Filter by fuel brand. Leave as "All Brands" to include all brands.
   optional: true
 name: Fuel Prices Portugal
 refresh_interval: 360
