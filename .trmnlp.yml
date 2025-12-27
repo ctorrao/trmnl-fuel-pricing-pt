@@ -11,6 +11,7 @@ custom_fields:
   fuel_type_id: 3201
   distrito_id: 11
   municipio_id: '165'
+  marca_id: ''
 
 # override variables
 variables:
