@@ -9,7 +9,7 @@ A [TRMNL](https://usetrmnl.com/) plugin that displays real-time fuel prices for 
 - 🔄 Polls for updates every 6 hours (360 minutes)
 - 🎨 Multiple layout options: full, half (horizontal/vertical), and quadrant views
 - 📍 Filters by district (required) and optionally by municipality
-- 🏷️ Filter by fuel brand (optional) - choose from 80+ brands or show all
+- 🏷️ Filter by fuel brand (optional) - choose from 77 brands or show all
 - 🎛️ Configurable fuel type selection (Gasoline 95/98, Diesel, GPL, etc.)
 - ✨ Enhanced layouts with improved readability and data presentation
 
@@ -51,7 +51,7 @@ The plugin supports filtering by fuel brand. Some popular brands include:
 | JUMBO | 39 |
 | RECHEIO | 55 |
 
-For a complete list of all 80+ available brands, see the brand dropdown in the plugin settings or visit: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/GetMarcas
+For a complete list of all 77 available brands, see the brand dropdown in the plugin settings or visit: https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb/GetMarcas
 
 #### District IDs
 
@@ -517,7 +517,7 @@ The plugin can be configured through the TRMNL web interface with the following 
   - Example: 165 for Vila Franca de Xira
   - See tables above for complete list of municipality IDs
 - **Fuel Brand**: Optional dropdown to filter by brand (default: All Brands)
-  - Choose from 80+ brands including GALP, REPSOL, BP, SHELL, PRIO, INTERMARCHÉ, CONTINENTE, and many more
+  - Choose from 77 brands including GALP, REPSOL, BP, SHELL, PRIO, INTERMARCHÉ, CONTINENTE, and many more
   - Leave as "All Brands" to include all stations regardless of brand
   - Useful for finding the cheapest price at your preferred brand
 - **Results per page**: 20 stations (fixed)
